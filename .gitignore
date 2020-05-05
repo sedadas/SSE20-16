@@ -1,0 +1,6 @@
+# We don't want compiled PDFs in the repo
+*.pdf
+
+# We don't want editor settings in the repo
+.vscode/
+.idea/

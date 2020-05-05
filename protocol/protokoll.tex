@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Institut für Rechnergestuetzte Automation
+% Forschungsgruppe Industrial Software
+% Arbeitsgruppe ESSE
+% https://security.inso.tuwien.ac.at/
+% lva.security@inso.tuwien.ac.at
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,titlepage,oneside]{scrartcl}
+\newcommand{\lang}{de}
+\usepackage{esseProtocol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% FOR STUDENTS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Team number or "0" for Lab0
+%TODO team number
+\newcommand{\team}{XX}
+% Date
+%TODO fill in creation date
+\newcommand{\datum}{01.01.1970}
+%TODO lab number
+% valid values: "Lab0", "Lab1" (be sure to use Uppercase for first character)
+\newcommand{\lab}{LabX}
+
+%TODO name of course
+\newcommand{\lvaname}{LVA-Name}
+%TODO number of course
+\newcommand{\lvanr}{183.XXX}
+%TODO year and term, for example: "SS 2012", "WS 2012", "SS 2013", etc.
+\newcommand{\semester}{WS/SS 20XX}
+
+% Student data in Lab0 or 1. student of team in Lab1
+\newcommand{\studentAName}{John Doe}
+\renewcommand{\studentAMatrnr}{4711081}
+
+% 2. student of team in Lab1, for Lab0 or if your team has less students, remove these 2 lines
+\newcommand{\studentBName}{Martha Musterfrau}
+\renewcommand{\studentBMatrnr}{1234567}
+
+% 3. student of team in Lab1, for Lab0 or if your team has less students, remove these 2 lines
+\newcommand{\studentCName}{Otto Mustermann}
+\renewcommand{\studentCMatrnr}{0815421}
+
+% 4. student of team in Lab1, for Lab0 or if your team has less students, remove these 2 lines
+\newcommand{\studentDName}{Otto Mustermann}
+\renewcommand{\studentDMatrnr}{0995421}
+
+% 5. student of team in Lab1, for Lab0 or if your team has less students, remove these 2 lines
+\newcommand{\studentEName}{Otto Mustermann}
+\renewcommand{\studentEMatrnr}{0236214}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DO NOT CHANGE THE FOLLOWING PART
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\colormode}{color}
+\newcommand{\dokumenttyp}{Abgabedokument \lab}
+
+\begin{document}
+
+\maketitle
+\setcounter{section}{0}
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CONTENT OF DOCUMENT STARTS HERE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ueberschrift 1}
+
+\subsection{Hinweise}
+\emph{Hinweise:}
+\begin{itemize}
+    \item Verwenden sie entweder diese deutsche Version oder die englische Version in \lstinline{protocol.tex}
+    \item Setzen sie alle Variablen nach \emph{FOR STUDENTS} in der .tex Datei
+    \item Ersetzen sie die Platzhalter für ihre Namen und MatNr.
+    \item Löschen sie diese Sektion über Hinweise und die folgenden Beispiel-Kapitel
+    \item Achten sie auf geforderte Formate und Anforderungen an die Dateinamen
+    \item Führen Sie \lstinline{pdflatex} mindestens 2 mal aus, damit die Referenzen und Seitenzahlen richtig im PDF dargestellt werden
+    \item Sie koenen dazu auch das Makefile verwenden: \lstinline{make de}
+\end{itemize}
+
+\subsection{Sub-Ueberschrift 1}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\subsection{Sub-Ueberschrift 2}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+\section{Ueberschrift 2}
+
+\subsection{Sub-Ueberschrift 1}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+
+\subsection{Sub-Ueberschrift 2}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+\subsection{Sub-Ueberschrift 3}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+
+\section{Beispiele}
+
+\subsection{Source Code formatieren}
+Es folgen einige Beispiele wie Sourcecode in diesem Dokument formatiert und referenziert werden kann
+(\hyperref[code:beispiel1]{siehe Listing~\ref*{code:beispiel1} auf Seite~\pageref*{code:beispiel1}} und \hyperref[code:beispiel2]{siehe Listing~\ref*{code:beispiel2} auf Seite~\pageref*{code:beispiel2}}).
+
+Ebenso können kurzer Code oder kurze Befehle direkt in der Zeile in einem \lstinline{lstinline Block} mit typengleicher Schrift formatiert werden.
+
+\lstinputlisting[caption=Example C/C++ file,label=code:beispiel1,style=c]{example.c}
+
+\begin{lstlisting}[caption=Example bash script,label=code:beispiel2,style=simple]
+#!/bin/bash
+echo "Bash version ${BASH_VERSION}..."
+for i in {0..10..2}
+  do
+     echo "Welcome $i times"
+ done
+
+echo "some very very very very very very very very very very very very very very very very very very very very long string"
+
+exit 0;
+\end{lstlisting}
+
+\subsection{Bilder}
+
+Es folgen einige Beispiele wie Bilder in diesem Dokument eingefuegt werden koennen
+(\hyperref[fig:logo1]{siehe Abbildung~\ref*{fig:logo1} auf Seite~\pageref*{fig:logo1}}).
+
+\begin{figure}[h!]
+  \centering
+  \fbox{
+    \includegraphics[width=0.4\textwidth]{./imgs/logos/esse-logo-color.png}
+  }
+  \caption{ESSE Logo}
+  \label{fig:logo1}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DO NOT CHANGE THE FOLLOWING PART
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
