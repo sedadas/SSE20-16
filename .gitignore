@@ -4,3 +4,10 @@
 # We don't want editor settings in the repo
 .vscode/
 .idea/
+
+# LaTeX
+protocol/**/*.aux
+protocol/**/*.log
+protocol/**/*.out
+protocol/**/*.synctex.gz
+protocol/**/*.toc
