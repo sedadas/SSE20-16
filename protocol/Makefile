@@ -4,14 +4,13 @@
 # $+    eine Liste aller Abhängigkeiten
 # $^    eine Liste aller Abhängigkeiten, wobei allerdings doppelt vorkommende Abhängigkeiten eliminiert wurden.
 
-DOKUMENT = protokoll
 DOCUMENT = protocol
 
-all: en de
+all: en
 
 clean:
 	@echo "make clean leaves generated pdf files untouched. To delete them also, use: \n\tmake distclean\n"
-	@for filename in $(DOKUMENT) $(DOCUMENT); do \
+	@for filename in $(DOCUMENT); do \
 		rm -fv $${filename}.tex~; \
 		rm -fv $${filename}.aux; \
 		rm -fv $${filename}.log; \
@@ -22,12 +21,7 @@ clean:
 	done
 
 distclean: clean
-	@rm -fv $(DOKUMENT).pdf
 	@rm -fv $(DOCUMENT).pdf
-
-de: $(DOKUMENT).pdf
-	@echo "deutsches Dokument erstellt"
-	@echo "---------------------------"
 
 en: $(DOCUMENT).pdf
 	@echo "english document created"
