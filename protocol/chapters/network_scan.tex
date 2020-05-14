@@ -84,9 +84,9 @@ traceroute to 172.26.66.1 (172.26.66.1), 64 hops max
     2   172.26.66.1  0.629ms  0.248ms  0.205ms
     \end{lstlisting}
 
-    \item We know which our DNS server is and we can go ahead and get its MAC address.
+    \item We can call this command after every scan to get the MAC addresses of the found hosts
+    (will work only in the same broadcast domain, we cannot determine the MAC addresses of hosts in remote networks)
     \begin{lstlisting}[language=bash,numbers=none]
-ping 192.168.45.4 # ping first to fill arp cache
 ip neigh # get our neighbours as the arp command is not available
     \end{lstlisting}
 
@@ -105,15 +105,15 @@ The results that we obtained are documented in the table below (a little zoom ma
         \hline
         venus.local.vienna.essecorp.invalid     & 192.168.45.4   & fdcb:c447:e992:3553:1005::4  & 00:1b:d2:b3:43:62 & Unix-like (dns is dnsmasq) & 53/tcp (dns) & dns \\
         \hline
-        saturn.local.vienna.essecorp.invalid    & 192.168.45.21  & fdcb:c447:e992:3553:1005::5  & N/A & Unix-like (mail servers - dovecot, exim) & 25/tcp (smtp), 110/tcp (pop3), 143/tcp (imap) & mail server \\
+        saturn.local.vienna.essecorp.invalid    & 192.168.45.21  & fdcb:c447:e992:3553:1005::5  & 00:1b:d2:1a:c9:75 & Unix-like (mail servers - dovecot, exim) & 25/tcp (smtp), 110/tcp (pop3), 143/tcp (imap) & mail server \\
         \hline
-        mars.local.vienna.essecorp.invalid      & 192.168.45.56  & fdcb:c447:e992:3553:1005::16 & N/A &  Unix-like (tcp6 proxy is tinyproxy) & 1080/tcp4 (socks), 8080/tcp6 (proxy) & proxy \\
+        mars.local.vienna.essecorp.invalid      & 192.168.45.56  & fdcb:c447:e992:3553:1005::16 & 00:1b:d2:81:54:c3 &  Unix-like (tcp6 proxy is tinyproxy) & 1080/tcp4 (socks), 8080/tcp6 (proxy) & proxy \\
         \hline
-        jupiter.local.vienna.essecorp.invalid   & 192.168.45.99  & fdcb:c447:e992:3553:1005::2b & N/A & Unix-like (server is CUPS) & 631/tcp (ipp) & print server \\
+        jupiter.local.vienna.essecorp.invalid   & 192.168.45.99  & fdcb:c447:e992:3553:1005::2b & 00:1b:d2:80:96:13 & Unix-like (server is CUPS) & 631/tcp (ipp) & print server \\
         \hline
-        mercury.local.vienna.essecorp.invalid   & 192.168.45.202 & fdcb:c447:e992:3553:1005::55 & N/A & ? & N/A & ? \\
+        mercury.local.vienna.essecorp.invalid   & 192.168.45.202 & fdcb:c447:e992:3553:1005::55 & 00:1b:d2:fe:bc:17 & ? & N/A & ? \\
         \hline
-        neptune.local.vienna.essecorp.invalid   & 192.168.45.204 & fdcb:c447:e992:3553:1005::4f & N/A & Linux (Debian) & 139/tcp (netbios-ssn), 445/tcp (smb) & file server \\
+        neptune.local.vienna.essecorp.invalid   & 192.168.45.204 & fdcb:c447:e992:3553:1005::4f & 00:1b:d2:1e:cd:a0 & Linux (Debian) & 139/tcp (netbios-ssn), 445/tcp (smb) & file server \\
         \hline
         ws00-ws28.local.vienna.essecorp.invalid & 192.168.45.64-92 & fdcb:c447:e992:3553:1005::a0 - bc & N/A & Linux (Debian) & 22/tcp (ssh) & team machines \\
         \hline
@@ -136,3 +136,4 @@ The results that we obtained are documented in the table below (a little zoom ma
 \end{center}
 
 \subsection{Network Diagram}
+\includegraphics[scale=0.6]{imgs/sse-netscan.png}
