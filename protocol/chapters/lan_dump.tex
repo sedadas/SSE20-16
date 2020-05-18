@@ -1,1 +1,58 @@
 \section{LAN Dump}
+\subsection{Analysis of the attack}
+The attacker did the following actions:
+\begin{itemize}
+    \item he scanned the network for hosts (seen in frames \#12 - \#453)
+    \item he started a port scan against 10.13.37.137 (seen in frames \#455 - \#4692)
+    \item he tried connecting to the 10.13.37.137 via SSH
+    \item he then opened a web page on the attacked host (seen in frames \#4718 - \#4744)
+    \item he managed to bruteforce the password of the user webadmin on 10.13.37.137
+    \item he tried bruteforcing SSH
+    \item he tried bruteforcing the web interface (seen in frames \#9920 - \#10054) and succeeded
+    \item he then uploaded the 'badPHP.php' script using the 'Upload Report' function (seen in frames \#10067 - \#10078) and called it (\#10079) without success
+    \item he managed to open a telnet session between his machine and the attacked server (at the end of the dump)
+    \item and he tried deleting the web application (\#10198)
+    \item he saw that he was in the sudoers file (\#10286) and changed the mode to all files in upload to 777
+    \item he executed the 'badPHP.php' script and replaced the content of 'index.php' with
+    \begin{verbatim}
+        (_)
+         _  ___  _   _
+        | |/ _ \| | | |
+        | | (_) | |_| |
+        |_|\___/ \__,_|
+
+           If you behave well, you might get a present soon.
+           After all, I know my way around "scripts" ;-)
+        --M00NL16H7
+    \end{verbatim}
+    \item he then tried to cover his tracks (\#10383)
+\end{itemize}
+
+\subsection{File Upload}
+The file uploaded was the script 'badPHP.php'.
+It took him less than a second to upload the file.
+
+\subsection{Targeted Attacks}
+The attacker tried connecting to 10.13.37.137 using FTP and the user 'webadmin' multiple times.
+His attempts were unsuccessful.
+This can be seen in frames \#4795 - \#8419
+
+He managed to find the 'webadmin' password (password1) in frame \#8390 with the acknowledgement coming in frame \#8395.
+He uses that password later to perform a telnet connection to the attacked server
+
+The attacker tried bruteforcing SSH (seen in frames \#8442 - \#9919)
+with the user 'john' (e.g., in packet \#8575) without success.
+
+The attacker tried logging in through the web interface with the user 'admin'
+(e.g. frame \#9950) without success. Eventually though, he managed to login with the
+user 'username' and the password 'password' (frame \#10054).
+
+The attacker tried logging in using telnet with the following username-password combinations:
+\begin{itemize}
+    \item root:tryme - the attempt was unsuccessful
+    \item webadmin:password1 - the attempt was successful
+\end{itemize}
+
+\subsection{Name}
+The name of the attacker is to be found in frame \#10321.
+I found it while going through the telnet session between the two servers.
