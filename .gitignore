@@ -11,3 +11,7 @@ protocol/**/*.log
 protocol/**/*.out
 protocol/**/*.synctex.gz
 protocol/**/*.toc
+protocol/**/*.bbl
+protocol/**/*.blg
+protocol/**/*.fls
+protocol/**/*.fdb_latexmk
