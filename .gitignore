@@ -11,3 +11,4 @@ protocol/**/*.log
 protocol/**/*.out
 protocol/**/*.synctex.gz
 protocol/**/*.toc
+protocol/**/*.tex.bak
